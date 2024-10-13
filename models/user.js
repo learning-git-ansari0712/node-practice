@@ -1,8 +1,20 @@
 const mongoose =require("mongoose");
-mongoose.connect("mongodb://127.0.0.1:27017/node-project");
 
-let usermodel=mongoose.Schema({
-    name:String,
-    age:Number
+const userSchema=mongoose.Schema({
+    fullname:String,
+    email:String,
+    password:String,
+    cart:{
+        type:Array,
+        default:[]
+    },
+    isadmin:Boolean,
+    orders:{
+        type:Array,
+        default:[]
+
+    },
+    conatct:Number,
+    picture:String
 });
-module.exports=mongoose.model("user",usermodel);
+module.exports=mongoose.model("user",userSchema);
